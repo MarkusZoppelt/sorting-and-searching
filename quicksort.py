@@ -1,27 +1,32 @@
 arr = [35, 2, 45, 64, 99, 10]
 
-def partition(arr, low, high):
-    pivot = arr[high]
-    i = (low-1)
- 
-    for j in range(low, high):
-        if arr[j] <= pivot:
-            i = i+1
-            arr[i], arr[j] = arr[j], arr[i]
- 
-    arr[i+1], arr[high] = arr[high], arr[i+1]
-    return (i+1)
+# Runtime: O(m log(n)) average O(n^2) worst case. Memory: O(n log(n))
+def quickSort(arr, left: int, right: int):
+    index = partition(arr, left, right)
+    if left < index - 1: # sort left half
+        quickSort(arr, left, index - 1)
+    if index < right: # sort right half
+        quickSort(arr, index, right)
 
-# O(n²)
-def quickSort(arr, low, high):
-    if len(arr) == 1:
-        return arr
-    if low < high:
-        pi = partition(arr, low, high)
+def partition(arr, left: int, right: int) -> int:
+    pivot = arr[right] # pick pivot (here: last)
+    while left < right:
+        # find element on left that should be on right
+        while arr[left] < pivot:
+            left += 1
 
-        quickSort(arr, low, pi-1)
-        quickSort(arr, pi+1, high)
- 
-quickSort(arr, 0, len(arr)-1)
+        # find element on right that should be on left
+        while arr[right] > pivot:
+            right -= 1
+        
+        # swap elements, nd move left and right indices
+        if left <= right:
+            arr[left], arr[right] = arr[right], arr[left] # swaps elements
+            left += 1
+            right -= 1
+
+    return left
+
+quickSort(arr, 0, len(arr) - 1)
 
 print(arr)
