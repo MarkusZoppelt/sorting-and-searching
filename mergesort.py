@@ -1,7 +1,3 @@
-from heapq import merge
-import math
-
-
 arr = [35, 2, 45, 64, 99, 10]
 
 # Runtime: O(n log (n)) average and worst case. Memory: O(n)
