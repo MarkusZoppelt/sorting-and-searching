@@ -1,6 +1,6 @@
 arr = [35, 2, 45, 64, 99, 10]
 
-# O(n²)
+# Runtime: O(n²) average and worst case. Memory: O(1)
 def bubblesort(arr):
     for i in range(len(arr)):
         for j in range(i+1, len(arr)):
