@@ -3,7 +3,7 @@ arr = [35, 2, 45, 64, 99, 10]
 # https://www.geeksforgeeks.org/radix-sort/
 
 # Runtime: O(kn)
-def radixSort(arr):
+def radixsort(arr):
  
     # Find the maximum number to know number of digits
     max1 = max(arr)
@@ -13,10 +13,10 @@ def radixSort(arr):
     # where i is current digit number
     exp = 1
     while max1 / exp > 1:
-        countingSort(arr, exp)
+        counting_sort(arr, exp)
         exp *= 10
 
-def countingSort(arr, exp1):
+def counting_sort(arr, exp1):
  
     n = len(arr)
  
@@ -50,6 +50,6 @@ def countingSort(arr, exp1):
     for i in range(0, len(arr)):
         arr[i] = output[i]
 
-radixSort(arr)
+radixsort(arr)
 
 print(arr)

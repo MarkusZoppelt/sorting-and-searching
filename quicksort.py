@@ -1,12 +1,12 @@
 arr = [35, 2, 45, 64, 99, 10]
 
 # Runtime: O(m log(n)) average O(n^2) worst case. Memory: O(n log(n))
-def quickSort(arr, left: int, right: int):
+def quicksort(arr, left: int, right: int):
     index = partition(arr, left, right)
     if left < index - 1: # sort left half
-        quickSort(arr, left, index - 1)
+        quicksort(arr, left, index - 1)
     if index < right: # sort right half
-        quickSort(arr, index, right)
+        quicksort(arr, index, right)
 
 def partition(arr, left: int, right: int) -> int:
     pivot = arr[right] # pick pivot (here: last)
@@ -27,6 +27,6 @@ def partition(arr, left: int, right: int) -> int:
 
     return left
 
-quickSort(arr, 0, len(arr) - 1)
+quicksort(arr, 0, len(arr) - 1)
 
 print(arr)
