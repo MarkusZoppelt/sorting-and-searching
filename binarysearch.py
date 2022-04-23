@@ -1,4 +1,4 @@
-arr = [35, 2, 45, 64, 99, 10]
+arr = [2, 10, 32, 64, 77, 99]
 find = 64
 
 # O(log n)
@@ -22,12 +22,13 @@ def binarySearchRecursive(arr, find: int, low: int, high: int) -> int:
     
     mid = low + (high - low) // 2
     if arr[mid] < find:
-        binarySearchRecursive(arr, find, mid + 1, high)
+        return binarySearchRecursive(arr, find, mid + 1, high)
     elif arr[mid] > find:
-        binarySearchRecursive(arr, find, low, mid - 1)
+        return binarySearchRecursive(arr, find, low, mid - 1)
     else: 
         return mid
 
 print(arr)
 
 print("Binary search for " + str(find) + " resulted at index: " + str(binarySearch(arr, find)))
+print("Binary search for " + str(find) + " resulted at index: " + str(binarySearchRecursive(arr, find, 0, len(arr) - 1)))
